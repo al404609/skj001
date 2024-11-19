@@ -2,9 +2,8 @@ import GUI
 import HAL
 import cv2
 
-Kp = 0.0104 
-Kd = 0.01  
-
+Kp = 0.00605 
+Kd = 0.0015  
 # Inicialización de variables
 prev_error = 0  # Error de la iteración anterior
 
