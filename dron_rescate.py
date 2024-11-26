@@ -37,7 +37,8 @@ difference_x = victim_UTM[0]-boat_UTM[0]
 difference_y = victim_UTM[1]-boat_UTM[1]
 print(difference_x)
 print(difference_y)
-
+HAL.takeoff(3)
+#
 while True:
-    # Enter iterative code!
+    HAL.set_cmd_pos(difference_x, difference_y, 3, 0.6)
 
