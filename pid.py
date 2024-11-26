@@ -7,7 +7,7 @@ previous_error = 0
 kp = 0.01
 kd = 0.01
 sum = 0
-ki = 0.000002
+ki = 0.000001
 
 while True:
     img = HAL.getImage()
