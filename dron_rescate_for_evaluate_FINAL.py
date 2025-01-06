@@ -33,7 +33,7 @@ y_pos = HAL.get_position()[1]
 
 face_cascade = cv.CascadeClassifier(cv.data.haarcascades + 'haarcascade_frontalface_default.xml')
 
-num_victims = 6 
+num_victims = 5 #  n-1 
 saved_victims = 0
 victims_locations = []
 
