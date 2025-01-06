@@ -21,7 +21,7 @@ survivor_coordinates = (430532, 4459132)  # 40º16'47.23" N, 3º49'01.78" W
 
 victims_x = boat_coordinates[1] - survivor_coordinates[1]  # Relative victims positions
 victims_y = boat_coordinates[0] - survivor_coordinates[0]  # Relative victims positions
-print("Victims at x: ", victims_x, "// y: ", victims_y)
+print("Victims position =: ", victims_x, "// y: ", victims_y)
 boat_x = 0
 boat_y = 0
 
@@ -54,7 +54,7 @@ target_x = victims_x
 target_y = victims_y
 
 # Flags para controlar los bucles
-print("Drone in position, searching for victims")
+print("Drone ready: searching for victims")
 is_searching = True
 is_in_position = False
 
@@ -117,7 +117,7 @@ while is_searching:
                     # 4. Si no estaba guardada, la agregamos
                     if not already_saved:
                         victims_locations.append(victim_location)
-                        print('saved victim at location: ', victim_location)
+                        print('saved victim +1 at location: ', victim_location)
                         print('saved victims: ', len(victims_locations))
         
         # Incrementamos el ángulo de la espiral
@@ -136,7 +136,7 @@ while is_searching:
     is_searching = (len(victims_locations) <= num_victims) and (distance < search_max_distance)
 
 # se vuelve al origen
-print("All victims found or max distance reached, returning to boat")
+print("I think I have saved all victims!!!!!!")
 target_x = boat_x
 target_y = boat_y
 is_in_position = False
