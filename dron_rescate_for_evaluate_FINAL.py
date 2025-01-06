@@ -97,15 +97,12 @@ while is_searching:
             # Si encontramos caras, verificamos si ya han sido guardados
             if len(detected_faces) > 0:
                 for face in detected_faces:
-                    # --- Aquí se realiza lo que antes hacía FaceFound(face) ---
-                    # 1. Tomamos la posición y orientación del dron
                     drone_location = HAL.get_position()
                     _drone_orientation = HAL.get_orientation()  # No se usa directamente, pero lo dejamos como referencia
                     
-                    # 2. Calculamos la ubicación de la víctima (para simplificar, tomamos la posición del dron)
                     victim_location = (drone_location[0], drone_location[1])
                     
-                    # 3. Verificamos si la víctima ya está en la lista, comparando distancias
+                    # Verificamos si la víctima ya está en la lista, comparando distancias
                     already_saved = False
                     for known_victim in victims_locations:
                         sqr_distance = (known_victim[0] - victim_location[0])**2 + (known_victim[1] - victim_location[1])**2
@@ -114,7 +111,7 @@ while is_searching:
                             already_saved = True
                             break
                     
-                    # 4. Si no estaba guardada, la agregamos
+                    # Si no estaba guardada, la añadimos
                     if not already_saved:
                         victims_locations.append(victim_location)
                         print('saved victim +1 at location: ', victim_location)
