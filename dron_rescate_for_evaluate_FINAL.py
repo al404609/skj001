@@ -16,8 +16,8 @@ import utm
 ############## LO HE PASADO DIRECTAMENTE PQ SI LO PONÍA CON LOS MÉTODOS DE ARRIBA SE ME IBA HACIA EL SENTIDO OPUESTO############
 
 # Coordinates of the safety boat and known survivor location
-boat_coordinates = (430492, 4459162)  # 40º16'48.2" N, 3º49'03.5" W
-survivor_coordinates = (430532, 4459132)  # 40º16'47.23" N, 3º49'01.78" W
+boat_coordinates = (430492, 4459162)  # 40º16'48.2" N, 3º49'03.5" W aprox en metros
+survivor_coordinates = (430532, 4459132)  # 40º16'47.23" N, 3º49'01.78" W aprox en metros
 
 victims_x = boat_coordinates[1] - survivor_coordinates[1]  # Relative victims positions
 victims_y = boat_coordinates[0] - survivor_coordinates[0]  # Relative victims positions
@@ -38,9 +38,9 @@ saved_victims = 0
 victims_locations = []
 
 distance = 0  # Meters
-distance_inc = 0.98  # Meters
+distance_inclination = 0.98  # Meters
 spiral_angle = 0     # rads
-spiral_angle_inc = 0.175# aprox 10 Degrees en rads
+spiral_inclination = 0.175# aprox 10 Degrees en rads
 search_max_distance = 50     # Meters
 
 distance_thr = 4.6  # new victim distance threshold in meters
@@ -118,9 +118,9 @@ while is_searching:
                         print('saved victims: ', len(victims_locations))
         
         # Incrementamos el ángulo de la espiral
-        spiral_angle += spiral_angle_inc
+        spiral_angle += spiral_inclination
         # Actualizamos la distancia a recorrer en la espiral
-        distance = (spiral_angle / (math.pi * 2)) * distance_inc
+        distance = (spiral_angle / (math.pi * 2)) * distance_inclination
         # Calculamos la nueva ubicación objetivo
         target_x = victims_x + distance * math.cos(spiral_angle)
         target_y = victims_y + distance * math.sin(spiral_angle)
