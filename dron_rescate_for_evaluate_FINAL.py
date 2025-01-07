@@ -147,7 +147,7 @@ while not is_in_position:
     GUI.showImage(frontal_img)
     GUI.showLeftImage(ventral_img)
     
-    # Vuelve el dron a origen
+    # Vuelve el drone a origen
     HAL.set_cmd_pos(target_x, target_y, takeoff_height, angle)
     
     # Verificamos si llegamos
